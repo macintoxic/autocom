@@ -1,6 +1,0 @@
-{DONE -oCharles -cImplementação : form dos dados do cheque (automático e manual)}
-{DONE -cImplementação -oCharles : Abertura da gaveta para qquer forma de pagamento.}
-{DONE -oCharles -cImplementação : Transferência de mesa, adicionar código ao form.}
-{DONE -oCharles -cImplementação : Título do comprovante de fechamento, deve ser o mesmo da legenda do f4.}
-{TODO -oCharles -cImplementação : Inserir variavel comprovante fechamento na seção terminal do autocom.ini}
-{DONE -oCharles -cImplementação : Capturar o número do ecf para o status bar.}
