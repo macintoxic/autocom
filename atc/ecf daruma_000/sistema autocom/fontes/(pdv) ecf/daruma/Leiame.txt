@@ -1,0 +1,18 @@
+CONCIDERACOES SOBRE A DLL DE COMUNICACAO _DARUMA.DLL
+
+1. CNFV OU NV
+
+   DEVE SER CADASTRADO NA IMPRESSORA 3 CNFV OU NV COM AS SEGUINTES
+CARACTERISTICAS:
+
+ - NOME: SANGRIA, TIPO "-", ID A
+ - NOME: FUNDO DE CAIXA, TIPO "+", ID B
+ - NOME: RECEBIMENTO, TIPO "V", ID C
+
+2. Sangria e Fundo de caixa
+
+   No _daruma.ini deve-se configurar o ID dos CNFNV para:
+
+[Impressora]
+sangria=A
+fcx=B

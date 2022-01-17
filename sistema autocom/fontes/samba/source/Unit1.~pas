@@ -1,0 +1,89 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGrids, DB, IBCustomDataSet, IBTable,
+  IBDatabase, IBQuery, Buttons;
+
+type
+  TFconsprod = class(TForm)
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    procedure FormActivate(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fconsprod: TFconsprod;
+  origem: integer;
+  v_codigoaux: integer;
+implementation
+
+uses dtm2_u, pedido, consprodgrupo_u, cme;
+
+{$R *.dfm}
+
+procedure TFconsprod.FormActivate(Sender: TObject);
+begin
+    fconsprod.top:=68;
+
+    if origem = 2 then
+     begin
+       dtm2.vendedores.FieldByName('PES_NOME_A').DisplayWidth := 28;
+       datasource1.DataSet:=dtm2.vendedores;
+     end;
+    if origem = 1 then
+     begin
+       //dtm2.produtos.FieldByName('NOMEPRODUTO').DisplayWidth := 28;
+       datasource1.DataSet:=dtm2.produtos;
+     end;
+     dbgrid1.Columns[0].Width:= 0;
+
+
+end;
+procedure TFconsprod.DBGrid1DblClick(Sender: TObject);
+begin
+     if origem = 1 then
+        begin
+           v_codigoaux:= strtoint(dtm2.produtos.fieldbyname('codigogrupoproduto').AsString );
+           dtm2.consubgrpo.Close;
+           dtm2.consubgrpo.SQL.Clear;
+           dtm2.consubgrpo.SQL.Add('Select codigosubgrupoproduto, subgrupo from subgrupoproduto where codigogrupoproduto=' + inttostr(v_codigoaux) + '');
+           dtm2.consubgrpo.Prepare;
+           dtm2.consubgrpo.Open;
+           fconsprodgrupo.showmodal;
+        end;
+
+     if origem = 2 then
+        begin
+           fcomand.e2garcom.Text:= dtm2.vendedores.FieldByName('ven_codvendedor').asstring ;
+           v_garcom:=dtm2.vendedores.fieldbyname('ven_codvendedor').Asinteger;
+           loggarcom:=dtm2.vendedores.fieldbyname('ven_codvendedor').Asinteger;
+           garcom:=dtm2.vendedores.fieldbyname('pes_nome_a').AsString;
+           fcomand.MEsenha.setfocus;
+           fconsprod.Close;
+        end;
+
+
+end;
+
+procedure TFconsprod.SpeedButton1Click(Sender: TObject);
+begin
+     fconsprod.close;
+end;
+
+end.
+
+
+
+

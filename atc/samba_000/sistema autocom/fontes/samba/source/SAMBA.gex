@@ -1,0 +1,12 @@
+[General]
+Name=SAMBA
+Project=1
+[Classes]
+Count=7
+Class0="Tfcomand","TForm","cme","9","D:\Allisson\Comanda eletronica iPAQ\cme.pas"
+Class1="TFconta","TForm","conta","0","D:\Allisson\Comanda eletronica iPAQ\conta.pas"
+Class2="TFpedido","TForm","pedido","10","D:\Allisson\Comanda eletronica iPAQ\pedido.pas"
+Class3="TFconsprod","TForm","Unit1","10","D:\Allisson\Comanda eletronica iPAQ\Unit1.pas"
+Class4="TDtm2","TDataModule","dtm2_u","8","D:\Allisson\Comanda eletronica iPAQ\dtm2_u.pas"
+Class5="Tfconsprodgrupo","TForm","consprodgrupo_u","9","D:\Allisson\Comanda eletronica iPAQ\consprodgrupo_u.pas"
+Class6="Tfresultprod","TForm","fresultprod_u","9","D:\Allisson\Comanda eletronica iPAQ\fresultprod_u.pas"
